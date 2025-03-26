@@ -1,0 +1,72 @@
+	<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.2.4</version>
+    <relativePath />
+  </parent>
+
+  <groupId>com.example</groupId>
+  <artifactId>spring-boot-helloworld</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>spring-boot-helloworld</name>
+  <description>Spring Boot Hello World Project</description>
+
+  <properties>
+    <java.version>17</java.version>
+    <sonar.host.url>http://localhost:9000</sonar.host.url>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Spring Boot Plugin -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <!-- SonarQube Plugin -->
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.11.0.3925</version>
+      </plugin>
+
+      <!-- Nexus Deploy Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>3.0.0-M1</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- Repositories and Plugin Repositories for Nexus -->
+  <distributionManagement>
+  <snapshotRepository>
+    <id>nexus</id>
+    <url>http://localhost:8081/repository/maven-snapshots/</url>
+  </snapshotRepository>
+</distributionManagement>
+
+
+</project>
